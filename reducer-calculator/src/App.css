@@ -1,0 +1,29 @@
+*, *:before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    border: solid red 3px;
+    height: 100vh;
+}
+
+#App{
+    border: solid yellow 2px;
+    height: 100%;
+}
+#calculator-container{
+    border: solid orange 2px;
+    height: 500px;
+    width: 400px;
+}
+
+#display-container{
+    border: solid blue 3px ;
+    height: 20%;
+}
+#keypad-container{
+    border: solid green 3px;
+    height: 80%;
+}
