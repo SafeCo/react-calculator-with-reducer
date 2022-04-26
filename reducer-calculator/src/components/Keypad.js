@@ -1,28 +1,28 @@
 import React from 'react'
-import Button from './Button'
+import DigitButton from './DigitButton'
 const Keypad = () => {
   return (
     <div id='keypad-container'>
-        <ul id='keypad-button-container' >
-            <Button type='clear' symbol='AC' />
-            <Button type='delete' symbol='DEL' />
-            <Button type='operand' symbol='/' />
-            <Button type='operand' symbol='+' />
-            <Button type='operand' symbol='-' />
-            <Button type='operand' symbol='x' />
-            <Button type='number' symbol='7' />
-            <Button type='number' symbol='8' />
-            <Button type='number' symbol='9' />
-            <Button type='number' symbol='4' />
-            <Button type='number' symbol='5' />
-            <Button type='number' symbol='6' />
-            <Button type='number' symbol='1' />
-            <Button type='number' symbol='2' />
-            <Button type='number' symbol='3' />
-            <Button type='dot' symbol='.' />
-            <Button type='number' symbol='0' />
-            <Button type='equals' symbol='=' />
-        </ul>
+        <div id='keypad-button-container' >
+            <DigitButton  symbol='AC' />
+            <DigitButton  symbol='DEL' />
+            <DigitButton  symbol='/' />
+            <DigitButton  symbol='+' />
+            <DigitButton  symbol='-' />
+            <DigitButton  symbol='x' />
+            <DigitButton  symbol='7' />
+            <DigitButton  symbol='8' />
+            <DigitButton  symbol='9' />
+            <DigitButton  symbol='4' />
+            <DigitButton  symbol='5' />
+            <DigitButton  symbol='6' />
+            <DigitButton  symbol='1' />
+            <DigitButton  symbol='2' />
+            <DigitButton  symbol='3' />
+            <DigitButton  symbol='.' />
+            <DigitButton  symbol='0' />
+            <DigitButton  symbol='=' />
+        </div>
     </div>
   )
 }

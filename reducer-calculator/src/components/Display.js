@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Display = () => {
+const Display = ({currentOperation}) => {
   return (
     <div id='display-container'>
-        <h1>Display</h1>
+        <h1>{currentOperation}</h1>
     </div>
   )
 }

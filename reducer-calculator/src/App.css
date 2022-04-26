@@ -27,3 +27,8 @@ body{
     border: solid green 3px;
     height: 80%;
 }
+
+#keypad-button-container > *{
+    height: 20px;
+    width: 100px;
+}
