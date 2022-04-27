@@ -21,15 +21,29 @@ function reducer (state, {type, payload}) {
 
   switch(type){
     case ACTIONS.ADD_DIGIT:
-      return {
-        ...state,
-        currentOperation: `${state.currentOperation || ""}${payload}`
+      if(payload === "." && state.currentOperation === undefined){
+        return{
+          ...state,
+          currentOperation: "0."
+        }
+      }else if(payload === "." && state.currentOperation.includes(".")){
+        return{
+          ...state         
+        }
+      }else{
+        return {
+          ...state,
+          currentOperation:  `${state.currentOperation || ""}${payload}`
+        }
       }
       break;
-    case ACTIONS.CHOOSE_OPERATION:
+   
+      case ACTIONS.CHOOSE_OPERATION:
       return{
         ...state,
-        currentOperation: `${state.currentOperation || ""}${payload}`
+        previousOperation: `${state.currentOperation || ""}${payload}`,
+        currentOperation: "",
+        operation: `${payload}`
       }
       break;
     
@@ -39,6 +53,7 @@ function reducer (state, {type, payload}) {
         previousOperation: "",
         operation: ""
       }
+
   }
   
 }
@@ -51,7 +66,7 @@ function App() {
     <div className="App">
         <div id='calculator-container'>
           <OperationsContext.Provider value={{dispatch}}>
-            <Display currentOperation={currentOperation} />
+            <Display currentOperation={currentOperation} previousOperation={previousOperation} />
             <Keypad  />
           </OperationsContext.Provider>
         </div>
