@@ -47,7 +47,7 @@ function reducer (state, {type, payload}) {
         ...state,
         previousOperation: `${state.currentOperation.includes(".") ? checkDot(): state.currentOperation}${payload}`,
         currentOperation: "",
-        operation: `${payload}`
+        operator: `${payload}`
       }
       break;
     
@@ -55,8 +55,27 @@ function reducer (state, {type, payload}) {
       return{
         currentOperation: "",
         previousOperation: "",
-        operation: ""
+        operator: ""
       }
+    break;
+    case ACTIONS.DELETE_DIGIT :
+      if(state.currentOperation === undefined && state.previousOperation === undefined){
+        return{
+          ...state
+        }
+      }else if(state.currentOperation.includes("") && state.previousOperation === true){
+        return{
+          currentOperation: state.previousOperation.slice(0,-1),
+          previousOperation: null,
+          operator: null
+        }
+      }else{
+        return{
+          ...state,
+          currentOperation: state.currentOperation.slice(0,-1)
+        }
+      }
+
 
   }
   
@@ -64,7 +83,7 @@ function reducer (state, {type, payload}) {
 
 function App() {
   
-  const [{currentOperation, previousOperation, operation}, dispatch] = useReducer(reducer, {})
+  const [{currentOperation, previousOperation, operator}, dispatch] = useReducer(reducer, {})
 
   return (
     <div className="App">

@@ -2,13 +2,14 @@ import React from 'react'
 import DigitButton from './DigitButton'
 import OperationButton from './OperationButton'
 import ClearButton from './ClearButton'
+import DeleteButton from './DeleteButton'
 
 const Keypad = () => {
   return (
     <div id='keypad-container'>
         <div id='keypad-button-container' >
             <ClearButton  symbol='AC' />
-            <DigitButton  symbol='DEL' />
+            <DeleteButton  symbol='DEL' />
             <OperationButton  symbol='/' />
             <OperationButton  symbol='+' />
             <OperationButton  symbol='-' />
