@@ -31,6 +31,14 @@ function reducer (state, {type, payload}) {
         ...state,
         currentOperation: `${state.currentOperation || ""}${payload}`
       }
+      break;
+    
+    case ACTIONS.CLEAR :
+      return{
+        currentOperation: "",
+        previousOperation: "",
+        operation: ""
+      }
   }
   
 }
