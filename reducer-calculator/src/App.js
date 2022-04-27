@@ -25,18 +25,19 @@ function reducer (state, {type, payload}) {
         ...state,
         currentOperation: `${state.currentOperation || ""}${payload}`
       }
-
+      break;
+    case ACTIONS.CHOOSE_OPERATION:
+      return{
+        ...state,
+        currentOperation: `${state.currentOperation || ""}${payload}`
+      }
   }
   
 }
 
 function App() {
   
- 
-
   const [{currentOperation, previousOperation, operation}, dispatch] = useReducer(reducer, {})
-
-
 
   return (
     <div className="App">

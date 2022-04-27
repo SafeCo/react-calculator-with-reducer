@@ -1,15 +1,16 @@
 import React from 'react'
 import DigitButton from './DigitButton'
+import OperationButton from './OperationButton'
 const Keypad = () => {
   return (
     <div id='keypad-container'>
         <div id='keypad-button-container' >
             <DigitButton  symbol='AC' />
             <DigitButton  symbol='DEL' />
-            <DigitButton  symbol='/' />
-            <DigitButton  symbol='+' />
-            <DigitButton  symbol='-' />
-            <DigitButton  symbol='x' />
+            <OperationButton  symbol='/' />
+            <OperationButton  symbol='+' />
+            <OperationButton  symbol='-' />
+            <OperationButton  symbol='x' />
             <DigitButton  symbol='7' />
             <DigitButton  symbol='8' />
             <DigitButton  symbol='9' />
