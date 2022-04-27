@@ -16,9 +16,6 @@ export const ACTIONS = {
 
 function reducer (state, {type, payload}) {
 
-  console.log(type)
-  console.log(payload)
-
   switch(type){
     case ACTIONS.ADD_DIGIT:
       if(payload === "." && state.currentOperation === undefined){
@@ -39,9 +36,16 @@ function reducer (state, {type, payload}) {
       break;
    
       case ACTIONS.CHOOSE_OPERATION:
+
+      function checkDot (){
+        let x = state.currentOperation.indexOf(".")
+        return state.currentOperation[x + 1]=== undefined ? 
+                state.currentOperation.replace(".", "") : 
+                state.currentOperation
+      }
       return{
         ...state,
-        previousOperation: `${state.currentOperation || ""}${payload}`,
+        previousOperation: `${state.currentOperation.includes(".") ? checkDot(): state.currentOperation}${payload}`,
         currentOperation: "",
         operation: `${payload}`
       }
