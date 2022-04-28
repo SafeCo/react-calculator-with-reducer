@@ -36,7 +36,6 @@ function reducer (state, {type, payload}) {
       break;
    
       case ACTIONS.CHOOSE_OPERATION:
-
       function checkDot (){
         let x = state.currentOperation.indexOf(".")
         return state.currentOperation[x + 1]=== undefined ? 
@@ -86,8 +85,56 @@ function reducer (state, {type, payload}) {
           currentOperation: state.currentOperation.slice(0,-1)
         }
       }
+    break;
 
+    case ACTIONS.EVALUATE :
+      function removeOperator(){
+        return parseFloat(state.previousOperation.slice(0, -1))
+      }
+      
+      switch(state.operator){
+        case "/":
+          return{
+            currentOperation: `${removeOperator() / parseFloat(state.currentOperation)}`,
+            previousOperation: null,
+            operator: null
+          }
+        break;
+        case "+":
+          return{
+            currentOperation: `${removeOperator() + parseFloat(state.currentOperation)}`,
+            previousOperation: null,
+            operator: null
+          }
+        break;
+        case "-":
+          return{
+            currentOperation: `${removeOperator() - parseFloat(state.currentOperation)}`,
+            previousOperation: null,
+            operator: null
+          }
+        break;
+        case "x":
+          return{
+            currentOperation: `${removeOperator() * parseFloat(state.currentOperation)}`,
+            previousOperation: null,
+            operator: null
+          }
+        break;
+        default :
+          return{
+            ...state
+          }
+        break;
+      }
+    
+    break;
 
+    default:
+      return{
+        ...state
+      }
+    break;
   }
   
 }

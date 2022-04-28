@@ -3,6 +3,7 @@ import DigitButton from './DigitButton'
 import OperationButton from './OperationButton'
 import ClearButton from './ClearButton'
 import DeleteButton from './DeleteButton'
+import EvaluateButton from './Evaluate'
 
 const Keypad = () => {
   return (
@@ -25,7 +26,7 @@ const Keypad = () => {
             <DigitButton  symbol='3' />
             <DigitButton  symbol='.' />
             <DigitButton  symbol='0' />
-            <DigitButton  symbol='=' />
+            <EvaluateButton  symbol='=' />
         </div>
     </div>
   )
