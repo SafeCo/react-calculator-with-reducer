@@ -42,12 +42,20 @@ function reducer (state, {type, payload}) {
         return state.currentOperation[x + 1]=== undefined ? 
                 state.currentOperation.replace(".", "") : 
                 state.currentOperation
+        }
+      if(!state.currentOperation){
+        console.log("working")
+        return{
+          ...state
+        }
+      }else{
+        return{
+          previousOperation: `${state.currentOperation.includes(".") ? checkDot(): state.currentOperation}${payload}`,
+          currentOperation: "",
+          operator: `${payload}`
+        }
       }
-      return{
-        previousOperation: `${state.currentOperation.includes(".") ? checkDot(): state.currentOperation}${payload}`,
-        currentOperation: "",
-        operator: `${payload}`
-      }
+      
       break;
     
     case ACTIONS.CLEAR :
