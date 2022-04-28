@@ -18,7 +18,8 @@ function reducer (state, {type, payload}) {
 
   switch(type){
     case ACTIONS.ADD_DIGIT:
-      if(payload === "." && state.currentOperation === undefined){
+      if(payload === "." && (state.currentOperation === undefined || !!state.currentOperation == "")){
+        console.log("working1")
         return{
           ...state,
           currentOperation: "0."
