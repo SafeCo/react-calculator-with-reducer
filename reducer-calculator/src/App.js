@@ -145,6 +145,7 @@ function App() {
 
   return (
     <div className="App">
+        <h1 id='title'>Calculator App with reducer and context API</h1>
         <div id='calculator-container'>
           <OperationsContext.Provider value={{dispatch}}>
             <Display currentOperation={currentOperation} previousOperation={previousOperation} />
