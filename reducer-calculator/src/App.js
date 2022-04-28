@@ -44,7 +44,6 @@ function reducer (state, {type, payload}) {
                 state.currentOperation
       }
       return{
-        ...state,
         previousOperation: `${state.currentOperation.includes(".") ? checkDot(): state.currentOperation}${payload}`,
         currentOperation: "",
         operator: `${payload}`
@@ -59,17 +58,21 @@ function reducer (state, {type, payload}) {
       }
     break;
     case ACTIONS.DELETE_DIGIT :
+
       if(state.currentOperation === undefined && state.previousOperation === undefined){
+        console.log("no numbers")
         return{
           ...state
         }
-      }else if(state.currentOperation.includes("") && state.previousOperation === true){
+      }else if(!state.currentOperation && !!state.previousOperation ){
+        console.log("working")
         return{
           currentOperation: state.previousOperation.slice(0,-1),
           previousOperation: null,
           operator: null
         }
       }else{
+        console.log("fallback")
         return{
           ...state,
           currentOperation: state.currentOperation.slice(0,-1)
