@@ -6,6 +6,7 @@
 
 body{
     height: 100vh;
+    background-color: rgb(127, 204, 255);
 }
 
 .App{
@@ -21,18 +22,30 @@ body{
     font-size: 2rem;
 }
 
+#calculator-position{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
 #calculator-container{
+    position: absolute;
+    top: 10%;
     border: solid grey 3px;
     margin-top: 3em;
     height: 500px;
     width: 400px;
+
 }
+
 
 #display-container{
     height: 20%;
     display: grid;
     grid-template-rows: 1fr 1fr;
     border-bottom: solid gray 2px;
+    background-color: white;
 }
 
 #keypad-container{
@@ -46,7 +59,24 @@ body{
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-#keypad-container > button{
-    width: 100px;
-    height: 100px;
+#keypad-button-container > button{ 
+    font-size: 2em;
 }
+
+
+@media only screen and (min-width: 2160px) {
+    #title{
+        font-size: 5rem;
+    }
+    #calculator-container{
+        height: 1000px;
+        width: 900px;
+    }
+    #keypad-button-container > button{ 
+        font-size: 5em;
+    }
+
+    #display-container{
+        font-size: 2.5em;
+    }
+  }

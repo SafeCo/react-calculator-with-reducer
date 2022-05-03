@@ -19,7 +19,6 @@ function reducer (state, {type, payload}) {
   switch(type){
     case ACTIONS.ADD_DIGIT:
       if(payload === "." && (state.currentOperation === undefined || !!state.currentOperation == "")){
-        console.log("working1")
         return{
           ...state,
           currentOperation: "0."
@@ -44,7 +43,6 @@ function reducer (state, {type, payload}) {
                 state.currentOperation
         }
       if(!state.currentOperation){
-        console.log("working")
         return{
           ...state
         }
@@ -68,19 +66,16 @@ function reducer (state, {type, payload}) {
     case ACTIONS.DELETE_DIGIT :
 
       if(state.currentOperation === undefined && state.previousOperation === undefined){
-        console.log("no numbers")
         return{
           ...state
         }
       }else if(!state.currentOperation && !!state.previousOperation ){
-        console.log("working")
         return{
           currentOperation: state.previousOperation.slice(0,-1),
           previousOperation: null,
           operator: null
         }
       }else{
-        console.log("fallback")
         return{
           ...state,
           currentOperation: state.currentOperation.slice(0,-1)
@@ -147,12 +142,15 @@ function App() {
   return (
     <div className="App">
         <h1 id='title'>Calculator App with reducer and context API</h1>
-        <div id='calculator-container'>
-          <OperationsContext.Provider value={{dispatch}}>
-            <Display currentOperation={currentOperation} previousOperation={previousOperation} />
-            <Keypad  />
-          </OperationsContext.Provider>
+        <div id='calculator-position'>
+          <div id='calculator-container'>
+            <OperationsContext.Provider value={{dispatch}}>
+              <Display currentOperation={currentOperation} previousOperation={previousOperation} />
+              <Keypad  />
+            </OperationsContext.Provider>
+          </div>
         </div>
+        
     </div>
   );
 }
